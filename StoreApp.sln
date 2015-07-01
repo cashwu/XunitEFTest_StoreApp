@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp", "StoreApp\StoreApp.csproj", "{E9E63260-1EE1-4DAF-AB90-BCBBD7AD4808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Tests", "StoreApp.Tests\StoreApp.Tests.csproj", "{0B0D926C-9430-4ABD-B2B3-02652DA55FE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppMock", "StoreAppMock\StoreAppMock.csproj", "{5DAD202B-F137-4FFD-A84A-424E79641B48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppMock.Tests", "StoreAppMock.Tests\StoreAppMock.Tests.csproj", "{B10F1E46-8659-4355-9478-82522B163CDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppMock2", "StoreAppMock2\StoreAppMock2.csproj", "{4C336812-51A4-4DFC-9525-08AB0FB6B71C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppMock2.Tests", "StoreAppMock2.Tests\StoreAppMock2.Tests.csproj", "{16F61D69-68F0-454B-B1D8-B8DFF8DD9013}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9E63260-1EE1-4DAF-AB90-BCBBD7AD4808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E63260-1EE1-4DAF-AB90-BCBBD7AD4808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E63260-1EE1-4DAF-AB90-BCBBD7AD4808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E63260-1EE1-4DAF-AB90-BCBBD7AD4808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B0D926C-9430-4ABD-B2B3-02652DA55FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B0D926C-9430-4ABD-B2B3-02652DA55FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B0D926C-9430-4ABD-B2B3-02652DA55FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B0D926C-9430-4ABD-B2B3-02652DA55FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DAD202B-F137-4FFD-A84A-424E79641B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DAD202B-F137-4FFD-A84A-424E79641B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DAD202B-F137-4FFD-A84A-424E79641B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DAD202B-F137-4FFD-A84A-424E79641B48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B10F1E46-8659-4355-9478-82522B163CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B10F1E46-8659-4355-9478-82522B163CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B10F1E46-8659-4355-9478-82522B163CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B10F1E46-8659-4355-9478-82522B163CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C336812-51A4-4DFC-9525-08AB0FB6B71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C336812-51A4-4DFC-9525-08AB0FB6B71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C336812-51A4-4DFC-9525-08AB0FB6B71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C336812-51A4-4DFC-9525-08AB0FB6B71C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16F61D69-68F0-454B-B1D8-B8DFF8DD9013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16F61D69-68F0-454B-B1D8-B8DFF8DD9013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16F61D69-68F0-454B-B1D8-B8DFF8DD9013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16F61D69-68F0-454B-B1D8-B8DFF8DD9013}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(CodealikeProperties) = postSolution
+		SolutionGuid = d12f50a9-07a2-42ec-8d90-fe1968e5a750
+	EndGlobalSection
+EndGlobal
