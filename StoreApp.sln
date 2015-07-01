@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22823.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp", "StoreApp\StoreApp.csproj", "{E9E63260-1EE1-4DAF-AB90-BCBBD7AD4808}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppMock2", "StoreAppMock2\StoreAppMock2.csproj", "{4C336812-51A4-4DFC-9525-08AB0FB6B71C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppMock2.Tests", "StoreAppMock2.Tests\StoreAppMock2.Tests.csproj", "{16F61D69-68F0-454B-B1D8-B8DFF8DD9013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppTestController", "StoreAppTestController\StoreAppTestController.csproj", "{FCECA88F-3A46-4F23-9103-4A43CAA99F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppTestController.Tests", "StoreAppTestController.Tests\StoreAppTestController.Tests.csproj", "{33CD80C2-7E55-4755-B3FE-AFD5840B40B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{16F61D69-68F0-454B-B1D8-B8DFF8DD9013}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16F61D69-68F0-454B-B1D8-B8DFF8DD9013}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16F61D69-68F0-454B-B1D8-B8DFF8DD9013}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCECA88F-3A46-4F23-9103-4A43CAA99F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCECA88F-3A46-4F23-9103-4A43CAA99F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCECA88F-3A46-4F23-9103-4A43CAA99F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCECA88F-3A46-4F23-9103-4A43CAA99F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33CD80C2-7E55-4755-B3FE-AFD5840B40B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33CD80C2-7E55-4755-B3FE-AFD5840B40B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33CD80C2-7E55-4755-B3FE-AFD5840B40B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33CD80C2-7E55-4755-B3FE-AFD5840B40B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
