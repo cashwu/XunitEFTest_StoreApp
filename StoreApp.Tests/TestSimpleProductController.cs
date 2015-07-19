@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http.Results;
+using FluentAssertions;
 using StoreApp.Controllers;
 using StoreApp.Models;
 using Xunit;
@@ -20,7 +21,7 @@ namespace StoreApp.Tests
             var result = controller.GetAllProducts() as List<Product>;
 
             //// assert 
-            Assert.Equal(testProducts.Count, result.Count);
+            result.Count.Should().Be(testProducts.Count);
         }
 
         [Fact]
@@ -34,7 +35,7 @@ namespace StoreApp.Tests
             var result = await controller.GetAllProductsAsync() as List<Product>;
 
             //// assert
-            Assert.Equal(testProducts.Count, result.Count);
+            result.Count.Should().Be(testProducts.Count);
         }
 
         [Fact]
@@ -48,7 +49,7 @@ namespace StoreApp.Tests
             var result = controller.GetProduct(4) as OkNegotiatedContentResult<Product>;
 
             // assert
-            Assert.Equal(testProduct[3].Name, result.Content.Name);
+            result.Content.Name.Should().Be(testProduct[3].Name);
         }
 
         [Fact]
@@ -62,7 +63,7 @@ namespace StoreApp.Tests
             var result = await controller.GetProductAsync(4) as OkNegotiatedContentResult<Product>;
 
             // assert
-            Assert.Equal(testProduct[3].Name, result.Content.Name);
+            result.Content.Name.Should().Be(testProduct[3].Name);
         }
 
         [Fact]
@@ -75,7 +76,7 @@ namespace StoreApp.Tests
             var result = controller.GetProduct(999);
 
             // assert
-            Assert.IsType(typeof(NotFoundResult), result);
+            result.Should().BeOfType<NotFoundResult>();
         }
 
         private List<Product> GetTestProducts()

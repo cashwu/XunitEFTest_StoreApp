@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Web.Http;
 using System.Web.Http.ModelBinding;
 using System.Web.Http.Routing;
+using FluentAssertions;
 using NSubstitute;
 using StoreAppTestController.Controllers;
 using StoreAppTestController.Models;
@@ -35,8 +36,8 @@ namespace StoreAppTestController.Tests
             // assert
             Product product;
 
-            Assert.True(response.TryGetContentValue<Product>(out product));
-            Assert.Equal(1, product.Id);
+            response.TryGetContentValue<Product>(out product).Should().BeTrue();
+            product.Id.Should().Be(1);
         }
 
         [Fact]
@@ -70,7 +71,7 @@ namespace StoreAppTestController.Tests
             var response = controller.Post(item);
 
             // assert
-            Assert.Equal("http://localhost/api/products/1", response.Headers.Location.AbsoluteUri);
+            response.Headers.Location.AbsoluteUri.Should().Be("http://localhost/api/products/1");
         }
 
         [Fact]
@@ -98,7 +99,7 @@ namespace StoreAppTestController.Tests
             var response = controller.Post(item);
 
             // assert
-            Assert.Equal(locationUrl, response.Headers.Location.AbsoluteUri);
+            response.Headers.Location.AbsoluteUri.Should().Be(locationUrl);
         }
 
         private Product GetDemoProduct()

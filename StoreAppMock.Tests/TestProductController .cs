@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Web.Http.Results;
+using FluentAssertions;
 using StoreAppMock.Controllers;
 using StoreAppMock.Models;
 using Xunit;
@@ -19,9 +20,9 @@ namespace StoreAppMock.Tests
             var result = controller.PostProduct(item) as CreatedAtRouteNegotiatedContentResult<Product>;
 
             // assert
-            Assert.Equal(result.RouteName, "DefaultApi");
-            Assert.Equal(result.RouteValues["id"], item.Id);
-            Assert.Equal(result.Content.Name, item.Name);
+            result.RouteName.Should().Be("DefaultApi");
+            result.RouteValues["id"].Should().Be(item.Id);
+            result.Content.Name.Should().Be(item.Name);
         }
 
         [Fact]
@@ -35,8 +36,8 @@ namespace StoreAppMock.Tests
             var result = controller.PutProduct(item.Id, item) as StatusCodeResult;
 
             // assert
-            Assert.IsType(typeof(StatusCodeResult), result);
-            Assert.Equal(HttpStatusCode.NoContent, result.StatusCode);
+            result.Should().BeOfType<StatusCodeResult>();
+            result.StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
 
         [Fact]
@@ -49,7 +50,7 @@ namespace StoreAppMock.Tests
             var badresult = controller.PutProduct(999, this.GetDemoProduct());
 
             // assert
-            Assert.IsType(typeof(BadRequestResult), badresult);
+            badresult.Should().BeOfType<BadRequestResult>();
         }
 
         [Fact]
@@ -65,7 +66,7 @@ namespace StoreAppMock.Tests
             var result = controller.GetProduct(3) as OkNegotiatedContentResult<Product>;
 
             // assert
-            Assert.Equal(3, result.Content.Id);
+            result.Content.Id.Should().Be(3);
         }
 
         [Fact]
@@ -82,7 +83,7 @@ namespace StoreAppMock.Tests
             var result = controller.GetProducts() as TestProductDbSet;
 
             // assert
-            Assert.Equal(3, result.Local.Count);
+            result.Local.Count.Should().Be(3);
         }
 
         [Fact]
@@ -99,7 +100,7 @@ namespace StoreAppMock.Tests
             var result = controller.DeleteProduct(3) as OkNegotiatedContentResult<Product>;
 
             // assert
-            Assert.Equal(item.Id, result.Content.Id);
+            result.Content.Id.Should().Be(item.Id);
         }
 
         private Product GetDemoProduct()

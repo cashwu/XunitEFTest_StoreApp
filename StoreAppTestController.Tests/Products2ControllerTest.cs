@@ -2,6 +2,7 @@
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Results;
+using FluentAssertions;
 using NSubstitute;
 using StoreAppTestController.Controllers;
 using StoreAppTestController.Models;
@@ -29,9 +30,9 @@ namespace StoreAppTestController.Tests
             var contentResult = actionResult as OkNegotiatedContentResult<Product>;
 
             // assert
-            Assert.NotNull(contentResult);
-            Assert.NotNull(contentResult.Content);
-            Assert.Equal(1, contentResult.Content.Id);
+            contentResult.Should().NotBeNull();
+            contentResult.Content.Should().NotBeNull();
+            contentResult.Content.Id.Should().Be(1);
         }
 
         [Fact]
@@ -51,7 +52,7 @@ namespace StoreAppTestController.Tests
             IHttpActionResult actionResult = controller.Get(10);
 
             // assert
-            Assert.IsType(typeof(NotFoundResult), actionResult);
+            actionResult.Should().BeOfType<NotFoundResult>();
         }
 
         [Fact]
@@ -72,7 +73,7 @@ namespace StoreAppTestController.Tests
             var actionResult = controller.Delete(1);
 
             // assert
-            Assert.IsType(typeof(OkResult), actionResult);
+            actionResult.Should().BeOfType<OkResult>();
         }
 
         [Fact]
@@ -93,9 +94,9 @@ namespace StoreAppTestController.Tests
             var createResult = actionResult as CreatedAtRouteNegotiatedContentResult<Product>;
 
             // assert
-            Assert.NotNull(createResult);
-            Assert.Equal("DefaultApi", createResult.RouteName);
-            Assert.Equal(1, createResult.RouteValues["id"]);
+            createResult.Should().NotBeNull();
+            createResult.RouteName.Should().Be("DefaultApi");
+            createResult.RouteValues["id"].Should().Be(1);
         }
 
         [Fact]
@@ -114,10 +115,10 @@ namespace StoreAppTestController.Tests
             var contentResult = controller.Put(item) as NegotiatedContentResult<Product>;
 
             // assert
-            Assert.NotNull(contentResult);
-            Assert.Equal(HttpStatusCode.Accepted, contentResult.StatusCode);
-            Assert.NotNull(contentResult.Content);
-            Assert.Equal(1, contentResult.Content.Id);
+            contentResult.Should().NotBeNull();
+            contentResult.StatusCode.Should().Be(HttpStatusCode.Accepted);
+            contentResult.Content.Should().NotBeNull();
+            contentResult.Content.Id.Should().Be(1);
         }
 
         private Product GetDemoProduct()
