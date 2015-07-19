@@ -15,3 +15,7 @@
     
 - StoreAppTestController (StoreAppTestController.Test) Project is mapping [Unit Testing Controllers in ASP.NET Web API 2](http://www.asp.net/web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api)
     - using xunit & NSubstitute
+
+### Branch - branch_FluentAssertions
+
+- using [Fluent Assertions](http://www.fluentassertions.com/) Framework 
