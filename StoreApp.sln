@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoreAppTestController Web"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppMock2.Nunit.Test", "StoreAppMock2.Nunit.Test\StoreAppMock2.Nunit.Test.csproj", "{DA7F183D-BBAE-4BCF-A951-168C23C6DB9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppTestController.Nunit.Tests", "StoreAppTestController.Nunit.Tests\StoreAppTestController.Nunit.Tests.csproj", "{E1FB34FF-69D5-48FF-8836-B60A32FF4EB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{DA7F183D-BBAE-4BCF-A951-168C23C6DB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA7F183D-BBAE-4BCF-A951-168C23C6DB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA7F183D-BBAE-4BCF-A951-168C23C6DB9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1FB34FF-69D5-48FF-8836-B60A32FF4EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1FB34FF-69D5-48FF-8836-B60A32FF4EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1FB34FF-69D5-48FF-8836-B60A32FF4EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1FB34FF-69D5-48FF-8836-B60A32FF4EB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{4AA6E867-DE40-4346-9930-E9A24417B4F6} = {2D2A8F95-BC58-498E-9107-4BFC02D81DB8}
 		{9BD12717-F4E7-42E7-8800-EFED94C34BB6} = {4E514701-7BFE-44B4-8110-F3493EE3744A}
 		{DA7F183D-BBAE-4BCF-A951-168C23C6DB9E} = {E3E01D89-E80B-4C49-9601-976DAB71543D}
+		{E1FB34FF-69D5-48FF-8836-B60A32FF4EB4} = {D7339E10-6B9E-40B5-AEBA-F4EB5DE54FBF}
 	EndGlobalSection
 	GlobalSection(CodealikeProperties) = postSolution
 		SolutionGuid = d12f50a9-07a2-42ec-8d90-fe1968e5a750
