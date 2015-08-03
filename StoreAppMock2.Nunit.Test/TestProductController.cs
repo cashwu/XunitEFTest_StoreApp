@@ -1,4 +1,7 @@
-﻿using NSubstitute;
+﻿using FluentAssertions;
+using NSubstitute;
+using NUnit.Core;
+using NUnit.Framework;
 using StoreAppMock2.Controllers;
 using StoreAppMock2.Models;
 using System.Collections.Generic;
@@ -6,35 +9,35 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Http.Results;
-using Xunit;
 
-namespace StoreAppMock2.Tests
+namespace StoreAppMock2.Nunit.Test
 {
+    [TestFixture]
     public class TestProductController
     {
-        [Fact]
+        [Test]
         public void PostProduct_ShouldReturnSameProduct()
         {
             // arrange
             var item = this.GetDemoProduct();
-
             var mockDbSet = Substitute.For<DbSet<Product>>();
-            var mockDbContext = Substitute.For<StoreAppMock2Context>();
-            mockDbContext.Products = mockDbSet;
-            mockDbContext.Products.Add(item).Returns(item);
+            var mockDbContex = Substitute.For<StoreAppMock2Context>();
+            mockDbContex.Products = mockDbSet;
+            mockDbContex.Products.Add(item).Returns(item);
 
-            var controller = new ProductsController(mockDbContext);
+            var controller = new ProductsController(mockDbContex);
 
             // act
-            var result = controller.PostProduct(item) as CreatedAtRouteNegotiatedContentResult<Product>;
+            var result = controller.PostProduct(item);
 
             // assert
-            Assert.Equal(result.RouteName, "DefaultApi");
-            Assert.Equal(result.RouteValues["id"], item.Id);
-            Assert.Equal(result.Content.Name, item.Name);
+            result.Should().NotBeNull().And.BeOfType<CreatedAtRouteNegotiatedContentResult<Product>>();
+            result.As<CreatedAtRouteNegotiatedContentResult<Product>>().RouteName.Should().Be("DefaultApi");
+            result.As<CreatedAtRouteNegotiatedContentResult<Product>>().RouteValues["id"].Should().Be(item.Id);
+            result.As<CreatedAtRouteNegotiatedContentResult<Product>>().Content.Name.Should().Be(item.Name);
         }
 
-        [Fact]
+        [Test]
         public void PutProduct_ShouldReturnStatusCode()
         {
             // arrange
@@ -45,16 +48,16 @@ namespace StoreAppMock2.Tests
             mockDbContext.Products = mockDbSet;
 
             var controller = new ProductsController(mockDbContext);
-
+            
             // act
-            var result = controller.PutProduct(item.Id, item) as StatusCodeResult;
+            var result = controller.PutProduct(item.Id, item);
 
             // assert
-            Assert.IsType(typeof(StatusCodeResult), result);
-            Assert.Equal(HttpStatusCode.NoContent, result.StatusCode);
+            result.Should().NotBeNull().And.BeOfType<StatusCodeResult>();
+            result.As<StatusCodeResult>().StatusCode.Should().Be(HttpStatusCode.NoContent);
         }
 
-        [Fact]
+        [Test]
         public void PutProduct_ShouldFail_WhenDifferentID()
         {
             // arrange
@@ -62,6 +65,7 @@ namespace StoreAppMock2.Tests
 
             var mockDbSet = Substitute.For<DbSet<Product>>();
             var mockDbContext = Substitute.For<StoreAppMock2Context>();
+
             mockDbContext.Products = mockDbSet;
             mockDbContext.Products.Add(item).Returns(item);
 
@@ -70,31 +74,33 @@ namespace StoreAppMock2.Tests
             // act
             var badresult = controller.PutProduct(999, item);
 
-            // assert
-            Assert.IsType(typeof(BadRequestResult), badresult);
+            // assert            
+            badresult.Should().Should().NotBeNull();
+            badresult.Should().BeOfType<BadRequestResult>();
         }
 
-        [Fact]
+        [Test]
         public void GetProduct_ShouldReturnProductWithSameID()
         {
             // arrange
             var item = this.GetDemoProduct();
 
-            var mockDbSet = Substitute.For<DbSet<Product>>();
+            var mockDbset = Substitute.For<DbSet<Product>>();
             var mockDbContext = Substitute.For<StoreAppMock2Context>();
-            mockDbContext.Products = mockDbSet;
+            mockDbContext.Products = mockDbset;
             mockDbContext.Products.Find(item.Id).Returns(item);
 
             var controller = new ProductsController(mockDbContext);
 
             // act
-            var result = controller.GetProduct(3) as OkNegotiatedContentResult<Product>;
+            var result = controller.GetProduct(3);
 
             // assert
-            Assert.Equal(3, result.Content.Id);
+            result.Should().NotBeNull().And.BeOfType<OkNegotiatedContentResult<Product>>();
+            result.As<OkNegotiatedContentResult<Product>>().Content.Id.Should().Be(3);
         }
 
-        [Fact]
+        [Test]
         public void GetProducts_ShouldReturnAllProducts()
         {
             // arrange
@@ -104,16 +110,17 @@ namespace StoreAppMock2.Tests
             var mockDbContext = Substitute.For<StoreAppMock2Context>();
             mockDbContext.Products = mockDbSet;
 
-            var controller = new ProductsController(mockDbContext);
+            var contrller = new ProductsController(mockDbContext);
 
             // act
-            var result = controller.GetProducts();
+            var result = contrller.GetProducts();
 
             // assert
-            Assert.Equal(3, result.Count());
+            result.Should().NotBeNull();
+            result.Count().Should().Be(3);
         }
 
-        [Fact]
+        [Test]
         public void DeleteProduct_ShouldReturnOK()
         {
             // arrange
@@ -127,10 +134,11 @@ namespace StoreAppMock2.Tests
             var controller = new ProductsController(mockDbContext);
 
             // act
-            var result = controller.DeleteProduct(3) as OkNegotiatedContentResult<Product>;
+            var result = controller.DeleteProduct(3);
 
             // assert
-            Assert.Equal(item.Id, result.Content.Id);
+            result.Should().NotBeNull();
+            result.As<OkNegotiatedContentResult<Product>>().Content.Id.Should().Be(item.Id);
         }
 
         private Product GetDemoProduct()

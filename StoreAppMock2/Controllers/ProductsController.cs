@@ -82,7 +82,7 @@ namespace StoreAppMock2.Controllers
             db.Products.Add(product);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
+            return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);                           
         }
 
         // DELETE: api/Products/5
