@@ -21,7 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppTestController.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Nunit.Test", "StoreApp.Nunit.Test\StoreApp.Nunit.Test.csproj", "{4AA6E867-DE40-4346-9930-E9A24417B4F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppMock.Nunit.Test", "StoreAppMock.Nunit.\StoreAppMock.Nunit.Test.csproj", "{9BD12717-F4E7-42E7-8800-EFED94C34BB6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppMock.Nunit.Test", "StoreAppMock.Nunit.Test\StoreAppMock.Nunit.Test.csproj", "{9BD12717-F4E7-42E7-8800-EFED94C34BB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoreApp WEb", "StoreApp WEb", "{2D2A8F95-BC58-498E-9107-4BFC02D81DB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoreAppMock Web", "StoreAppMock Web", "{4E514701-7BFE-44B4-8110-F3493EE3744A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +76,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9E63260-1EE1-4DAF-AB90-BCBBD7AD4808} = {2D2A8F95-BC58-498E-9107-4BFC02D81DB8}
+		{0B0D926C-9430-4ABD-B2B3-02652DA55FE6} = {2D2A8F95-BC58-498E-9107-4BFC02D81DB8}
+		{5DAD202B-F137-4FFD-A84A-424E79641B48} = {4E514701-7BFE-44B4-8110-F3493EE3744A}
+		{B10F1E46-8659-4355-9478-82522B163CDF} = {4E514701-7BFE-44B4-8110-F3493EE3744A}
+		{4AA6E867-DE40-4346-9930-E9A24417B4F6} = {2D2A8F95-BC58-498E-9107-4BFC02D81DB8}
+		{9BD12717-F4E7-42E7-8800-EFED94C34BB6} = {4E514701-7BFE-44B4-8110-F3493EE3744A}
 	EndGlobalSection
 	GlobalSection(CodealikeProperties) = postSolution
 		SolutionGuid = d12f50a9-07a2-42ec-8d90-fe1968e5a750
